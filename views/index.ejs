@@ -1,0 +1,38 @@
+<h1 class="text-center">Public Message Board </h1>
+<h6 class="text-center"><i>Send any message anonymously here</i></h6>
+<p class="text-center"><a href="https://twitter.com/ahmadbenos">Twitter</a></p>
+</h1>
+<ul class="list-group" style="margin-top: -10px !important;">
+    <% response.forEach(function(msg){ %>
+    <li class="list-group-item">
+        <div>
+            <p class="text-primary"><b><u>anonymous says:</u></b></p>
+            <p style="margin-top: -13px !important; margin-bottom: 0px !important;"> <%= msg.message %> </p>
+        </div>
+    </li>
+    <% }); %>
+</ul>
+<br>
+
+<% if(typeof errors != 'undefined'){ %>
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <%= errors[0].msg %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<% } %>
+
+<form action="/send" method="POST">
+    <div class="form-group">
+        <div class="input-group">
+            <input type="name" id="message" name="message" placeholder="Send a message..."
+                class="form-control form-control-lg" aria-describedby="button-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-outline-primary" type="submit" id="button-addon2">Send</button>
+            </div>
+        </div>
+
+    </div>
+</form>
