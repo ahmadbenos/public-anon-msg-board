@@ -2,17 +2,6 @@
 <h6 class="text-center"><i>Send any message anonymously here</i></h6>
 <p class="text-center"><a href="https://twitter.com/ahmadbenos">Twitter</a></p>
 </h1>
-<ul class="list-group" style="margin-top: -10px !important;">
-    <% response.forEach(function(msg){ %>
-    <li class="list-group-item">
-        <div>
-            <p class="text-primary"><b><u>anonymous says:</u></b></p>
-            <p style="margin-top: -13px !important; margin-bottom: 0px !important;"> <%= msg.message %> </p>
-        </div>
-    </li>
-    <% }); %>
-</ul>
-<br>
 
 <% if(typeof errors != 'undefined'){ %>
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -23,6 +12,28 @@
 </div>
 
 <% } %>
+
+<ul class="list-group" style="margin-top: -10px !important;">
+    <% response.forEach(function(msg){ %>
+    <li class="list-group-item">
+        <div>
+            <div class="d-flex justify-content-between">
+                <div>
+                    <p class="text-primary"><b><u>anonymous says:</u></b></p>
+                </div>
+                <div>
+                    <p class="text-muted"><i> <%= msg.date %> </i></p>
+                </div>
+            </div>
+            <p style="margin-top: -13px !important; margin-bottom: 0px !important;">
+                <%= msg.message %> </p>
+        </div>
+    </li>
+    <% }); %>
+
+
+</ul>
+<br>
 
 <form action="/send" method="POST">
     <div class="form-group">
