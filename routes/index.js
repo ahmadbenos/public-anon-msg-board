@@ -1,11 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const router = express.Router();
+const moment = require("moment");
+var date = moment().add(3, "hour").format("LT");
 
 // Load user model
 const User = require("../models/User");
-const e = require("express");
 
+// Get all messages!
 router.get("/", (req, res) => {
   User.find({}, (err, response) => {
     if (err) {
@@ -18,10 +20,12 @@ router.get("/", (req, res) => {
   });
 });
 
-// Get all messages!
+// send a message
 router.post("/send", (req, res) => {
   let errors = [];
   const message = req.body.message;
+
+  console.log(date);
   User.find({}, (err, response) => {
     //if message is empty
     if (!message) {
@@ -36,6 +40,7 @@ router.post("/send", (req, res) => {
     } else {
       const newMessage = new User({
         message,
+        date,
       });
 
       newMessage
