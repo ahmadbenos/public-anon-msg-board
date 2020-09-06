@@ -14,4 +14,6 @@ https://bit.ly/3gYmptL (hosted on heroku)
 
 - <b> EJS(template engine) </b>
 
+- of course HTML and CSS(+bootstrap) included
+
 Time in this app is in UTC timezone and not fully functional.
