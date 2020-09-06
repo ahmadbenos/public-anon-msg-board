@@ -2,7 +2,7 @@
 Public message board were people can send and view messages anonymously.
 
 <b>please make sure to check live demo of the web app:</b> 
-https://bit.ly/3gYmptL (hosted on heroku)
+https://shielded-plateau-31004.herokuapp.com/ (hosted on heroku)
 
 <h3>Built using:</h3>
 
